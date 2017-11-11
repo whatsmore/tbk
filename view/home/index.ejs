@@ -1,1 +1,23 @@
-Hello Home!
+<div><p> <span>搜索:</span> <input type="text"></p></div>
+<div><span>全网商品</span>|<span>两小时销量榜</span>|<span>全天销量榜</span></div>
+<% for(let goods of goosList) {%>
+<div>
+    <p>
+        名字：<%=goods.goods_title%>
+    </p>
+    <p>
+        <img src="<%=goods.goods_pic%>">"/>
+    </p>
+    <p>
+        原价：<%=goods.goods_price%> 用券价: <%=goods.coupon_apply_amount%>
+    </p>
+    <p>
+        优惠券地址：<a href="https://shop.m.taobao.com/shop/coupon.htm?seller_id=<%=goods.seller_id%>&activityId=<%=goods.coupon_id%>" >https://uland.taobao.com/coupon/edetail?activityId=<%=goods.coupon_id%>&itemId=<%=goods.seller_id%></a>
+        抢购地址：<a href="https://detail.tmall.com/item.htm?id=<%=goods.goods_id%>" >https://detail.tmall.com/item.htm?id=<%=goods.goods_id%></a>
+    </p>
+    <p>
+        销量：<%=goods.goods_sale_num%>
+    </p>
+</div>
+<% } %>
+<div><p>第<span>1</span>页</p></div>
