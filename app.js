@@ -27,8 +27,6 @@ render(app, {root: path.join(__dirname, "view"),layout: "layout/default",viewExt
 //-----------serve---------------------
 app.use(serve(path.join(__dirname, "public")));
 
-//-------------socket.io-----------------
-server = require("./socketer")(app);
 
 //-----------start server------------
 let port = 3000;
