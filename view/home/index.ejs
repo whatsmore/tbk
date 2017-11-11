@@ -6,14 +6,15 @@
         名字：<%=goods.goods_title%>
     </p>
     <p>
-        <img src="<%=goods.goods_pic%>">"/>
+        <img src="<%=goods.goods_pic%>" />
     </p>
     <p>
-        原价：<%=goods.goods_price%> 用券价: <%=goods.coupon_apply_amount%>
+        原价：<%=goods.goods_price%> 用券价: <%=goods.goods_price-goods.coupon_amount%>
     </p>
     <p>
-        优惠券地址：<a href="https://shop.m.taobao.com/shop/coupon.htm?seller_id=<%=goods.seller_id%>&activityId=<%=goods.coupon_id%>" >https://uland.taobao.com/coupon/edetail?activityId=<%=goods.coupon_id%>&itemId=<%=goods.seller_id%></a>
-        抢购地址：<a href="https://detail.tmall.com/item.htm?id=<%=goods.goods_id%>" >https://detail.tmall.com/item.htm?id=<%=goods.goods_id%></a>
+        <a href="https://shop.m.taobao.com/shop/coupon.htm?seller_id=<%=goods.seller_id%>&activityId=<%=goods.coupon_id%>">手机优惠券地址</a>
+        <a href="http://taoquan.taobao.com/coupon/unify_apply.htm?seller_id=<%=goods.seller_id%>&activityId=<%=goods.coupon_id%>">电脑优惠券地址</a>        
+        <a href="https://detail.tmall.com/item.htm?id=<%=goods.goods_id%>" >抢购地址</a>
     </p>
     <p>
         销量：<%=goods.goods_sale_num%>
@@ -21,3 +22,9 @@
 </div>
 <% } %>
 <div><p>第<span>1</span>页</p></div>
+
+<style>
+img {
+    width: 200px;
+}
+</style>
