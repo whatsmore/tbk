@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "kcors": "^1.3.2",
+    "koa": "^2.2.0",
+    "koa-compose": "^3.2.1",
+    "koa-conditional-get": "^2.0.0",
+    "koa-ejs": "^4.0.0",
+    "koa-etag": "^3.0.0",
+    "koa-joi-router": "^5.0.0",
+    "koa-static": "^3.0.0",
+    "socket.io": "^1.7.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^4.4.1"
+  },
+  "main": "app.js",
+  "scripts": {
+    "eslint:init": "./node_modules/.bin/eslint --init",
+    "eslint:file": "./node_modules/.bin/eslint app.js router.js",
+    "eslint:dir": "./node_modules/.bin/eslint ./common ./controller ./module ./server",
+    "eslint:fix": "./node_modules/.bin/eslint --fix ./common ./controller ./module ./server  app.js router.js",
+    "dev:app": "npm run eslint:file && npm run eslint:dir && node app"
+  }
+}
