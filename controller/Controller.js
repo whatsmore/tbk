@@ -6,6 +6,11 @@ class Controller
 
     }
 
+    getParam(ctx,name,value=null)
+    {
+        return ctx.query.name===undefined?ctx.query[name]:value;
+    } 
+
     getServer(serverName)
     {
         /*
