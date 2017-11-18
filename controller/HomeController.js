@@ -9,6 +9,16 @@ class HomeController extends Controller
         super();
     }
 
+    randomGoodsListName(goosList)
+    {
+        if (goosList && goosList.length>0)
+        {
+            let key = Math.round(Math.random()*(goosList.length-1));
+            return goosList[key].goods_short_title;
+        }
+        return '';
+    }
+
     all()
     {
         return async(ctx)=>{
@@ -17,9 +27,11 @@ class HomeController extends Controller
                 page:1,
             });
             let goosList = allRes.data;
+            let q = this.randomGoodsListName(goosList);
             return await ctx.render("home/index",{
                 goosList:goosList,
                 active:'all',
+                q:q
             });
         };
     }
@@ -32,9 +44,11 @@ class HomeController extends Controller
                 page:1,
             });
             let goosList = allRes.data;
+            let q = this.randomGoodsListName(goosList);
             return await ctx.render("home/index",{
                 goosList:goosList,
                 active:'top_hour',
+                q:q
             });
         };
     }
@@ -47,9 +61,11 @@ class HomeController extends Controller
                 page:1,
             });
             let goosList = allRes.data;
+            let q = this.randomGoodsListName(goosList);
             return await ctx.render("home/index",{
                 goosList:goosList,
                 active:'top_day',
+                q:q
             });
         };
     }
