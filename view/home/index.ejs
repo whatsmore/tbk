@@ -1,30 +1,40 @@
-<div><p> <span>搜索:</span> <input type="text"></p></div>
-<div><span>全网商品</span>|<span>两小时销量榜</span>|<span>全天销量榜</span></div>
-<% for(let goods of goosList) {%>
 <div>
-    <p>
-        名字：<%=goods.goods_title%>
-    </p>
-    <p>
-        <img src="<%=goods.goods_pic%>" />
-    </p>
-    <p>
-        原价：<%=goods.goods_price%> 用券价: <%=goods.goods_price-goods.coupon_amount%>
-    </p>
-    <p>
-        <a href="https://shop.m.taobao.com/shop/coupon.htm?seller_id=<%=goods.seller_id%>&activityId=<%=goods.coupon_id%>">手机优惠券地址</a>
-        <a href="http://taoquan.taobao.com/coupon/unify_apply.htm?seller_id=<%=goods.seller_id%>&activityId=<%=goods.coupon_id%>">电脑优惠券地址</a>        
-        <a href="https://detail.tmall.com/item.htm?id=<%=goods.goods_id%>" >抢购地址</a>
-    </p>
-    <p>
-        销量：<%=goods.goods_sale_num%>
-    </p>
+    <form action="/search" method="get">
+        <p> 
+            <span>搜索:</span> <input class="search" name="q" type="text" value="<%=q%>"><button type="submit">搜索</button>
+        </p>
+    </form>
 </div>
+<%
+if (active=='search') {
+%>
+<div>
+    <p>搜索结果如下(<a href="/">返回首页</a>):</p>
+</div>
+<%
+} else {
+%>
+<div>
+    <a href="/"><span <%=active=='all'?'class=active':''%> >全网商品</span></a>|
+    <a href="/top_hour"><span <%=active=='top_hour'?'class=active':''%> >两小时销量榜</span></a>|
+    <a href="/top_day"><span <%=active=='top_day'?'class=active':''%> >全天销量榜</span></a>
+</div>
+<%
+}
+%>
+<% for(let goods of goosList) {%>
+<% include goodsList %>
 <% } %>
 <div><p>第<span>1</span>页</p></div>
 
 <style>
 img {
     width: 200px;
+}
+.active{
+    color: red;
+}
+.search{
+ width: 300px;
 }
 </style>

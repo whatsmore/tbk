@@ -4,7 +4,10 @@ const homeController = AbstractFactory.getFactory("controller").getController("h
 const userController = AbstractFactory.getFactory("controller").getController("user");
 //-------------homeController--------------
 const home = joiRouter();
-home.get("/", homeController.index());
+home.get("/", homeController.all());
+home.get("/top_hour", homeController.topHour());
+home.get("/top_day", homeController.topDay());
+home.get("/search", homeController.search());
 
 
 //--------------userController---------------
